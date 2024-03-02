@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Basket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('showBasket') }}">View Basket</a>
+    <h2>Shopping Basket</h2>
+    <div>
+        {% if basket %}
+            <ul>
+            {% for item in basket %}
+                <li>{{ item.quantity }} x {{ item.name }} - {{ item.price }}</li>
+            {% endfor %}
+            </ul>
+            <p>Total Price: {{ total_price }}</p>
+        {% else %}
+            <p>Your basket is empty.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
